@@ -2,7 +2,7 @@ const fs = require('fs.promised');
 const Koa = require('koa');
 const app = new Koa();
 
-const main = async function (ctx, next) { // 异步操作
+const main = async function (ctx, next) { // fs.readFile是异步操作， main需写成async await形式
     ctx.response.type = 'html';
     ctx.response.body = await fs.readFile('./index.html', 'utf8');
 };
